@@ -82,7 +82,9 @@ This project is intended to provide experience with data engineering tasks using
  - At the LakeHouse interface, select New Semantic Model > ceate name
  - Select or deselect objects for the semantic model. Only objects that can be added to the semantic model are shown
  - Here I did not choose Bronze_Sales
+
 ![image](https://github.com/lonGDiBo/DataLake_Ecommerce_Using_Fabric/assets/115699195/548cd4d4-0d63-4c11-a262-6dce3ca1ab21)
+
  - Create relationships between the dimension tables and the fact table gold_fact_sale: Data Model should now look like this
    ![image](https://github.com/lonGDiBo/DataLake_Ecommerce_Using_Fabric/assets/115699195/ac0dd44d-789f-4712-9865-bf54b497b881)
 
@@ -90,5 +92,31 @@ This project is intended to provide experience with data engineering tasks using
  - You can create a new Power BI report in Fabric by clicking "New Report" in the Data Model view, clicking "Create Report" from the ellipse in the Workspace view data of Dataset or by connecting to Fabric Lakehouse using Power BI Desktop.
  - The dashboard provides an overview and analysis of sales data. The dashboard displays important information such as overall sales, sales by product category, sales by geographic region, and sales by time of day. The dashboard now looks like this:
    ![image](https://github.com/lonGDiBo/DataLake_Ecommerce_Using_Fabric/assets/115699195/0a00c1d0-8f6a-4f49-b9da-fd63fe15f074)
-
    
+## Step 5: Additionally, build an ARIMA model to predict sales
+ - Use the data in the Bronze_Sale table to create the model
+ - Draw graphs to see data fluctuations
+
+    ![image](https://github.com/lonGDiBo/DataLake_Ecommerce_Using_Fabric/assets/115699195/a52fd659-9952-4db0-91a6-f6afc6bd0fbb)
+ - Determine the p, d, q parameters of the ARima model using the auto_arima library to automatically find the best parameters for the model
+
+    ![image](https://github.com/lonGDiBo/DataLake_Ecommerce_Using_Fabric/assets/115699195/32cc7f56-8997-4e37-a77d-a02a2a662c69)
+    ![image](https://github.com/lonGDiBo/DataLake_Ecommerce_Using_Fabric/assets/115699195/990d7c6c-3765-471a-820e-f4af151de175)
+ - After determining the best parameters are (1, 0, 0) in the ARIMA model, their meaning is:
+    - p = 1: Autoregressive index, indicating that the model uses the value of autoregressive lag 1 to predict the current value.
+    - d = 0: Integration index, indicating that the time series has been processed and does not need to be integrated to become stationary.
+    - q = 0: Moving average index, indicating that the model does not use a moving average component in prediction.
+ - Then build the ARIMA model
+
+   ![image](https://github.com/lonGDiBo/DataLake_Ecommerce_Using_Fabric/assets/115699195/8e61a88f-a2f3-48bf-a63b-e1b6b293adb6)
+ 
+ - Evaluate model predictions
+  
+   ![image](https://github.com/lonGDiBo/DataLake_Ecommerce_Using_Fabric/assets/115699195/d49d313b-8ff8-4570-b14b-447f1f016c7f)
+ 
+ - The result of model
+
+   ![image](https://github.com/lonGDiBo/DataLake_Ecommerce_Using_Fabric/assets/115699195/90653038-345a-4a2a-8c50-2795edd1b03c)
+   ![image](https://github.com/lonGDiBo/DataLake_Ecommerce_Using_Fabric/assets/115699195/88b7fa57-8976-4d1e-a9c6-cc4d3fbbf59d)
+
+Conclusion: Use ARIMA for time series to build an expected revenue model, but the accuracy of the model may be limited due to the small amount of data.
