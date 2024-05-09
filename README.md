@@ -63,3 +63,32 @@ This project is intended to provide experience with data engineering tasks using
    - Creating Gold_Fact_Sale is similar to creating Gold_DimCustomer.
      ![image](https://github.com/lonGDiBo/DataLake_Ecommerce_Using_Fabric/assets/115699195/66fdd4b4-ad8e-4b7b-b665-ed4b8414d1af)
 
+8. Create Note Book Current to Archive: Push successfully loaded dataset from Current to Archive for storage
+    ![image](https://github.com/lonGDiBo/DataLake_Ecommerce_Using_Fabric/assets/115699195/7061ff68-ad76-4582-bc4b-f957aff0e2cd)
+
+9. Create Note Book Run_Load: This helps automate the processing process and saves time and effort compared to running each file individually.
+
+   ![image](https://github.com/lonGDiBo/DataLake_Ecommerce_Using_Fabric/assets/115699195/1a7d0a4e-e1d1-4878-b9a6-0c1333419213)
+
+11. Create a pipeline to automatically run data processing processes.
+    - From the Workspace select +New > Show all > Data pipeline
+    - Name the pipeline and select Add > NoteBook
+    - Rename the NoteBook activity
+    - Change the source to the Run_Load notebook
+    ![image](https://github.com/lonGDiBo/DataLake_Ecommerce_Using_Fabric/assets/115699195/256837f9-265c-48eb-a9b4-4116affeac07)
+    - On the Pipeline ribbon, click Run and the Pipeline will populate the Fabric Lakehouse with the dimensions and staging table for the CMS data. You do not need to schedule the Pipeline since it is a one-time load.
+   
+## Step 3: Create Semantic Model 
+ - At the LakeHouse interface, select New Semantic Model > ceate name
+ - Select or deselect objects for the semantic model. Only objects that can be added to the semantic model are shown
+ - Here I did not choose Bronze_Sales
+![image](https://github.com/lonGDiBo/DataLake_Ecommerce_Using_Fabric/assets/115699195/548cd4d4-0d63-4c11-a262-6dce3ca1ab21)
+ - Create relationships between the dimension tables and the fact table gold_fact_sale: Data Model should now look like this
+   ![image](https://github.com/lonGDiBo/DataLake_Ecommerce_Using_Fabric/assets/115699195/ac0dd44d-789f-4712-9865-bf54b497b881)
+
+## Step 4: Create Reports using Power BI
+ - You can create a new Power BI report in Fabric by clicking "New Report" in the Data Model view, clicking "Create Report" from the ellipse in the Workspace view data of Dataset or by connecting to Fabric Lakehouse using Power BI Desktop.
+ - The dashboard provides an overview and analysis of sales data. The dashboard displays important information such as overall sales, sales by product category, sales by geographic region, and sales by time of day. The dashboard now looks like this:
+   ![image](https://github.com/lonGDiBo/DataLake_Ecommerce_Using_Fabric/assets/115699195/0a00c1d0-8f6a-4f49-b9da-fd63fe15f074)
+
+   
