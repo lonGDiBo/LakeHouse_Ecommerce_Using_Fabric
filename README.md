@@ -2,8 +2,7 @@
 
 ## Scope
 This project is intended to provide experience with data engineering tasks using Fabric Spark and/or Data Pipelines to build out Delta Parquet tables and then use the Direct Lake connector in Power BI to query large volumes of real data. The medallion lakehouse architecture is followed in this sample where raw excel files are loaded to Bronze Layer, then Silver Layer flat table built using Delta Parquet format and lastly Gold Layer tables serve up the star schema model for a Direct Lake Power BI dataset.
-![image](https://github.com/lonGDiBo/DataLake_Ecommerce_Using_Fabric/assets/115699195/0410a4a5-b28f-4ee6-9736-10d3bda10540)
-
+![image](https://github.com/lonGDiBo/DataLake_Ecommerce_Using_Fabric/assets/115699195/5d6fa510-3acb-4456-b19d-c476a2927a36)
 
 ## Step 1: Create Lakehouse, upload data to Lakehouse and create Delta Parquet Table using Fabric Spark
 #### In this step we will upload raw files
